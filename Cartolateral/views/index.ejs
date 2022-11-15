@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartolateral</title>
+    <script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/StephanWagner/svgMap@v2.7.2/dist/svgMap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/gh/StephanWagner/svgMap@v2.7.2/dist/svgMap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    
+    <h1 class="text">Hello <%- name %>!</h1>
+    <div id="myDiv">
+
+    </div>
+</body>
+
+<script>
+    new svgMap({
+        targetElementID: 'myDiv',
+        data: {
+          data: {
+            gdp: {
+              name: 'GDP per capita',
+              format: '{0} USD',
+              thousandSeparator: ',',
+              thresholdMax: 50000,
+              thresholdMin: 1000
+            },
+            change: {
+              name: 'Change to year before',
+              format: '{0} %'
+            }
+          },
+          applyData: 'gdp',
+          values: {
+            AF: {gdp: 587, change: 4.73},
+            AL: {gdp: 4583, change: 11.09},
+            DZ: {gdp: 4293, change: 10.01},
+            IN: {gdp: 49237, change: 10.01}
+          }
+        }
+    });
+</script>
+
+</html>
