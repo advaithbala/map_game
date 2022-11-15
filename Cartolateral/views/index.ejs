@@ -7,19 +7,83 @@
     <script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/StephanWagner/svgMap@v2.7.2/dist/svgMap.min.js"></script>
     <link href="https://cdn.jsdelivr.net/gh/StephanWagner/svgMap@v2.7.2/dist/svgMap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
 </head>
 
-<body>
-    
-    <h1 class="text">Hello <%- name %>!</h1>
-    <div id="myDiv">
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato';
+  }
+  .wrapper {
+    padding: 0;
+  }
+  .header {
+    display: flex;
+    flex-flow: row;
+    background-color: black;
+  }
+  .item {
+    flex-grow: 1;
+    text-align: center;
+    color: white;
+    padding: 10px 20px;
+  }
+  .section{
+    display: flex;
+    flex-flow: row;
+    background-color: #d9ecff ;
+  }
+  .map{
+    flex-grow: 3;
+    padding: 30px 10px;
+  }
+  .response-wrapper{
+    flex-grow: 1;
+    display: flex;
+    flex-flow: column;
+    padding: 30px 10px;
+    max-width: 25vw;
+  }
+  .response-wrapper-text{
+    flex-grow: 2;
+  }
+  
+  
 
+</style>
+
+<body>
+  <div class="wrapper">
+    <div class="header">
+      <div class="item">Home</div>
+      <div class="item">Play</div>
+      <div class="item">Rules</div>
     </div>
+    <div class="section">
+      <div class="map" id="myMap">
+
+      </div>
+      <div class="section-response">
+        <div class="response-wrapper">
+          <form action="">
+            <div class="response-wrapper-text">State the connection between these countries:</div>
+            <input type="textarea">
+            <input type="submit" value="Check!">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 
 <script>
     new svgMap({
-        targetElementID: 'myDiv',
+        targetElementID: 'myMap',
         data: {
           data: {
             gdp: {
